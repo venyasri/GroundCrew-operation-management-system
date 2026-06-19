@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-ink-950 text-slate-200 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(245, 165, 36, 0.06), transparent 40%),
+      radial-gradient(circle at 100% 100%, rgba(6, 182, 212, 0.05), transparent 40%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-signal-amber/30 text-white;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-ink-900/70 border border-ink-700/60 rounded-xl backdrop-blur-sm;
+  }
+  .panel-hover {
+    @apply transition-colors duration-200 hover:border-ink-600;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono font-medium border;
+  }
+  .label-tiny {
+    @apply text-[10px] uppercase tracking-[0.18em] font-mono text-slate-500;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-signal-amber text-ink-950 font-medium text-sm hover:bg-amber-400 transition-colors;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-slate-100 hover:bg-ink-800 transition-colors;
+  }
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a3447; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4660; }
